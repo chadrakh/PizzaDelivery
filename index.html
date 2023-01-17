@@ -4,26 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pete's Pizza</title>
+    <title>Pete's Pizza | Home</title>
     <link rel="alternate icon" class="js-site-favicon" type="image/png" href="assets/pizza-icon.png">
     <link rel="icon" class="js-site-favicon" type="image/svg+xml" href="assets/pizza-icon.svg">
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles/index.css" />
 
-    <script type="text/javascript" src="main.js"></script>
+    <!-- Google Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <script type="text/javascript" src="src/index.js" async></script>
 </head>
 <body>
-    <section>
-        <header>
-            <nav>
-                <a href="#" class="logo"><img src="assets/PPLogo-PrimaryWhite.png" width="150" height="auto"></a>
-            <ul class="cta">
-                <li class="cta-link"><a href="#">What's New</a></li>
-                <li class="cta-link"><a href="#">Menu</a></li>
-                <li class="cta-link"><a href="#">Register</a></li>
-                <li class="cta-link"><a href="#">Login</a></li>
+    <header>
+        <nav>
+            <a href="index.html" class="logo"><img src="assets/PPLogo-PrimaryWhite.png" width="150" height="auto"></a>
+            <!-- CTA Links -->
+            <ul class="navLink-container">
+                <li class="navLink"><a href="index.html">Home</a></li>
+                <li class="navLink"><a href="menu.html">Menu</a></li>
+                <li class="navLink"><a href="locations.html">Locations</a></li>
+                <li class="navLink"><a href="about-us.html">About Us</a></li>
             </ul>
-            </nav>
-        </header>
-    </section>    
+            <!-- User Section -->
+            <ul class="navIcon-container">
+                <li class="navIcon">
+                    <a href="checkout.html">
+                        <span class="material-symbols-outlined">shopping_basket</span>
+                        <span class="basketText">0</span>
+                    </a>
+                </li>
+                <li class="navIcon">
+                    <a href="#">
+                        <span class="material-symbols-outlined">account_circle</span>
+                        <span class="accountText">Register</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="Landing">
+            <div class="landingVideo-container">
+                <video autoplay muted loop id="landingVideo">
+                    <source src="assets\videos\pizza-oven.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="landingContent-container">
+                <div class="postcode-container">
+                    <input class="postcode" type="text" placeholder="Enter postcode to start your order">
+                </div>
+                <div class="button-container">
+                    <button class="buttonRounded">COLLECTION</button>
+                    <button class="buttonRounded">DELIVERY</button>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
