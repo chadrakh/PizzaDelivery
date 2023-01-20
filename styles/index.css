@@ -9,25 +9,18 @@
 }
 
 :root {
-    /* House Style */
     --colour-primary: #0066ff;
-    --colour-secondary: #5388d8;
+    --colour-secondary: #ffffff;
     --colour-alternate: #221e20;
-
     --colour-alternate-translucent: #221e2060;
-    
-    /* Text Colours */
     --header-text: #ffffff;
     --footer-text: #ffffff;
+    --primary-text: #221e20;
     --alternate-text: #ffffff;
-    
-    /* Font Sizes */
     --header-size: 1rem;
-    --heading-size: 0.8rem;
-    --subHeading-size: 0.6rem;
-    --body-size: 0.5rem;
-    --tooltip-size: 0.3rem;
-
+    --heading-size: 3rem;
+    --subHeading-size: 1.2rem;
+    --body-size: 1rem;
     --transition-default: all 0.3s;
 }
 
@@ -38,18 +31,14 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-/* (Chrome, Safari, newer versions of Opera) */
-body::-webkit-scrollbar {
-    width: 0 !important
-}
-/* (Firefox) & (Internet Explorer +10)*/
 body {
+    background-color: var(--colour-alternate);
     overflow: -moz-scrollbars-none;
     -ms-overflow-style: none;
 }
 
-body {
-    background-color: var(--colour-alternate);
+body::-webkit-scrollbar {
+    width: 0 !important;
 }
 
 a {
@@ -86,6 +75,22 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.navColoured {
+    background-color: var(--colour-alternate);
+}
+
+.navTransparent {
+    background-color: transparent;
 }
 
 .navLink-container {
@@ -126,13 +131,19 @@ nav {
 }
 
 .navIcon {
-    background-color: var(--colour-alternate-translucent);
     padding: 0.5rem 1rem;
     border-radius: 1rem;
+    border: 1px solid var(--colour-secondary)
 }
 
 .navIcon:hover {
-    background-color: var(--colour-alternate);
+    /* background-color: var(--colour-primary); */
+    border: 1px solid var(--colour-primary);
+    transition: var(--transition-default);
+}
+
+.navIcon:hover span {
+    color: var(--colour-primary);
     transition: var(--transition-default);
 }
 
@@ -150,11 +161,9 @@ nav {
 /* Landing Section */
 #Landing {
     width: 100%;
-    height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 15rem;
 }
 
 .landingVideo-container {
@@ -162,7 +171,6 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
     z-index: -1;
 }
 
@@ -172,40 +180,154 @@ nav {
     gap: 1rem;
 }
 
-.landingAnimation {
-    display: none;
+.landingTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.landingHeading, .landingSubheading {
+    color: var(--alternate-text)
+}
+
+.landingHeading {
+    font-size: var(--heading-size);
+    margin-block: 1rem;
+}
+
+.landingSubheading {
+    font-size: var(--subHeading-size);    
+    font-style: italic;
+    font-weight: normal;
+}
+
+.postcode-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-block: 2rem 1.5rem;
 }
 
 .postcode {
     background-color: #ffffff;
-    width: 100%;
+    width: 50vw;
     padding: 1rem 0.5rem;
     border-radius: 0.3rem;
-    border: 0.1rem solid #4d4b4c;
+    border: 0.1rem solid var(--colour-alternate);
 }
 
 .postcode:focus {
-    border: 0.1rem solid #000000;
     transition: var(--transition-default);
+    border: 0.1rem solid #000000;
+}
+
+.invalidPostcode {
+    margin-top: 0.5rem;
+    color: red;
+}
+
+.invalidInput {
+    border: 0.15rem solid #ff0000;
 }
 
 .button-container {
     display: flex;
+    justify-content: center;
     gap: 1rem;
 }
 
 .buttonRounded {
-    border: 0.1rem solid var(--colour-primary);
+    border: 0.1rem solid var(--colour-secondary);
+    color: var(--colour-secondary);
     padding: 1rem 3rem;
     border-radius: 0.3rem;
     background-color: transparent;
     backdrop-filter: blur(1rem);
-    color: var(--alternate-text);
+    font-weight: bold;
 }
 
 .buttonRounded:hover {
-    background-color: var(--colour-primary);
     transition: var(--transition-default);
+    border: 0.1rem solid var(--colour-primary);
+    color: var(--colour-primary);
+}
+
+.buttonRoundedAlt {
+    border: 0.1rem solid var(--colour-primary);
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.3rem;
+    background-color: transparent;
+    color: var(--primary-text);
+    font-weight: bold;
+}
+
+.buttonRoundedAlt:hover {
+    background-color: var(--colour-primary);
+    color: var(--alternate-text);
+    transition: var(--transition-default);
+}
+
+.itemQuantity-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+#Order {
+    display: flex;
+    padding-inline: 2rem;
+    background-color: #ffffff;
+}
+
+#Menu, #Basket {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-block: 2rem;
+}
+
+#Pizzas, #Sides, #Drinks, #Desserts {
+    width: 100%;
+    margin-bottom: 10rem;
+}
+
+.menuItem-container {
+    display: grid;
+    grid-template-columns: repeat(3, 10rem);
+    column-gap: 2rem;
+}
+
+.menuItem {
+    margin-block: 1rem 3rem;
+    width: 8rem;
+}
+
+.itemImage {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 1rem;
+    object-fit: contain;
+}
+
+
+.itemTitle {
+    margin-bottom: 0.3rem;
+    font-size: var(--body-size);
+    font-weight: bold;
+}
+
+.pizzaSizeOption {
+    margin-block: 0.3rem;
+    width: 100%;
+}
+
+#Footer {
+    display: flex;
+    justify-content: center;
+    padding-block: 2rem;
+    color: var(--colour-secondary);
+    background-color: var(--colour-primary);
 }
 
 @media only screen and (min-width: 800px) {
@@ -216,24 +338,57 @@ nav {
     nav {
         flex-direction: row;
         justify-content: space-between;
+        background-color: var(--colour-alternate);
+        opacity: 80%;
     }
 
     .navLink-container {
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: left;
         gap: 2rem;
     }
 
     main {
-        margin: 8rem 1rem;
+        margin-top: 6rem;
     }
 
     #Landing {
         margin: 0;
+        height: 90vh;
     }
 
     .landingAnimation {
         display: flex;
         justify-content: center
+    }
+
+    .postcode {
+        width: 30vw;
+    }
+
+    #Pizzas, #Sides, #Drinks, #Desserts {
+        width: 100%;
+        margin-bottom: 5rem;
+    }
+
+    .menuHeading {
+        margin-bottom: 1rem;
+    }
+
+    .menuItem-container {
+    display: grid;
+    grid-template-columns: repeat(4, 10rem);
+    column-gap: 2rem;
+    }
+
+    .menuItem {
+        margin-block: 1rem 8rem;
+        width: 10rem;
+        height: 10rem;
+    }
+
+    .pizzaSizeOption {
+        margin-block: 0.3rem;
+        width: 100%;
     }
 }
