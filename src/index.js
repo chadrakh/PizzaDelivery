@@ -114,23 +114,20 @@ const incrementQuantity = (itemReference, isHalfAndHalf) => {
         half1 = document.getElementById("topping1").value;
         half2 = document.getElementById("topping2").value;
 
-        if (itemReference === "pizza1") {
-            if (isHalfAndHalf) {
-                
-                // If a detail of the 50/50 pizza hasn't been chosen, alert the user to select all choices
-                if(half1 === "default" || half2 === "default" || size === "default") {
-                    alert("Please select the size and toppings.");
-                } else {
-                    quantityCounterParsed += 1;
-                    document.querySelector(`.quantity-${itemReference}`).innerText = quantityCounterParsed;
+        if (isHalfAndHalf) {
+            // If a detail of the 50/50 pizza hasn't been chosen, alert the user to select all choices
+            if(half1 === "default" || half2 === "default" || size === "default") {
+                alert("Please select the size and toppings.");
+            } else {
+                quantityCounterParsed += 1;
+                document.querySelector(`.quantity-${itemReference}`).innerText = quantityCounterParsed;
 
-                    price = getPrice(size);
-                    addedItem.push([item, size, half1, half2, price]);
+                price = getPrice(size);
+                addedItem.push([item, size, price, half1, half2]);
 
-                    // Basket tally is updated for every successful call of the update function
-                    updateBasketTally("increment");
-                }   
-            }
+                // Basket tally is updated for every successful call of the update function
+                updateBasketTally("increment");
+            }   
 
         } else {
             if (size === "default") {
@@ -145,11 +142,11 @@ const incrementQuantity = (itemReference, isHalfAndHalf) => {
                 // Basket tally is updated for every successful call of the update function
                 updateBasketTally("increment");
             }
-        }   
-    }
+        }
 
-    if (addedItem.length > 0) {
-        basketItems.push(addedItem);
+        if (addedItem.length > 0) {
+            basketItems.push(addedItem);
+        }
     }
 }
 
@@ -213,16 +210,8 @@ const updateBasketItems = (updateType) => {
     
     if (updateType == "increment") {
         // Calculating sum using basketItems array
-        for (let outerIndex = 0; outerIndex < basketItems.length; outerIndex++) {
-            if (basketItems[outerIndex][outerIndex].length === 3) {
-                basketTotal += basketItems[outerIndex][0][2];
-
-            }
-            
-            if (basketItems[outerIndex][0].length === 5) {
-                basketTotal += basketItems[outerIndex][0][4];
-                console.log("basketItems[outerIndex][0][4] = " + basketItems[outerIndex][0][4])
-            }
+        for (let index = 0; index < basketItems.length; index++) {
+            basketTotal += basketItems[index][index][2];
         }
 
         //console.log(document.querySelector(".basketTotal").innerText)
