@@ -12,31 +12,24 @@
     <!-- Google Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-    <script type="text/javascript" src="src/index.js" async></script>
+    <script type="text/javascript" src="src/index.js" defer></script>
 </head>
 <body>
     <header>
-        <nav>
+        <nav id="NavBar">
             <a href="index.html" class="logo"><img src="assets/PPLogo-PrimaryWhite.png" width="150" height="auto"></a>
             <!-- CTA Links -->
-            <ul class="navLink-container">
+            <!-- <ul class="navLink-container">
                 <li class="navLink"><a href="index.html">Home</a></li>
-                <li class="navLink"><a href="menu.html">Menu</a></li>
-                <li class="navLink"><a href="locations.html">Locations</a></li>
-                <li class="navLink"><a href="about-us.html">About Us</a></li>
-            </ul>
+                <li class="navLink"><a href="#">Menu</a></li>
+                <li class="navLink"><a href="#">Basket</a></li>
+            </ul> -->
             <!-- User Section -->
             <ul class="navIcon-container">
                 <li class="navIcon">
                     <a href="checkout.html">
                         <span class="material-symbols-outlined">shopping_basket</span>
                         <span class="basketText">0</span>
-                    </a>
-                </li>
-                <li class="navIcon">
-                    <a href="#">
-                        <span class="material-symbols-outlined">account_circle</span>
-                        <span class="accountText">Register</span>
                     </a>
                 </li>
             </ul>
@@ -50,15 +43,582 @@
                 </video>
             </div>
             <div class="landingContent-container">
+                <div class="landingTitle">
+                    <h1 class="landingHeading">Welcome to Pete's Pizza!</h1>
+                    <h2 class="landingSubheading">Come for the show, stay for the food</h2>
+                </div>
                 <div class="postcode-container">
                     <input class="postcode" type="text" placeholder="Enter postcode to start your order">
+                    <p class="invalidPostcode hide">Enter a valid UK postcode.</p>
                 </div>
                 <div class="button-container">
-                    <button class="buttonRounded">COLLECTION</button>
-                    <button class="buttonRounded">DELIVERY</button>
+                    <button class="buttonRounded" onclick="validatePostcode()">LET'S GET STARTED</button>
                 </div>
             </div>
         </section>
+        <section id="Order">
+            <section id="Menu">
+                <div class="menu-container">
+                    <section id="Pizzas">
+                        <h2 class="menuHeading">Pizzas</h2>
+                        <div class="menuItem-container">
+                            <div class="menuItem">
+                                <img class="itemImage" src="./assets/pizza.png" alt="pizza"></img>
+                                <div class="itemInfo">
+                                    <div class="itemTitle title-pizza1">PlaceholderTitle</div>
+                                    <div class="sizes-container">
+                                        <select name="sizes" id="pizza1-size" class="pizzaSizeOption">
+                                            <option value="small">Small - 9.5" - £9.99</option>
+                                            <option value="small">Medium - 11.5" - £12.99</option>
+                                            <option value="small">Large - 13.5" - £15.99</option>
+                                            <option value="small">X-Large - 16" - £19.99</option>
+                                        </select>
+                                    </div>
+                                    <div class="itemQuantity-container">
+                                        <div class="quantityButtons">
+                                            <button class="buttonRoundedAlt" onclick="incrementQuantity('pizza1')">+</button>
+                                            <button class="buttonRoundedAlt" onclick="decrementQuantity('pizza1')">-</button>
+                                        </div>
+                                        <div class="quantityCount-container">
+                                            <p class="quantityCount quantity-pizza1">0</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menuItem">
+                                <img class="itemImage" src="./assets/pizza.png" alt="pizza"></img>
+                                <div class="itemInfo">
+                                    <div class="itemTitle title-pizza2">PlaceholderTitle</div>
+                                    <div class="sizes-container">
+                                        <select name="sizes" id="pizza2-size" class="pizzaSizeOption">
+                                            <option value="small">Small - 9.5" - £9.99</option>
+                                            <option value="small">Medium - 11.5" - £12.99</option>
+                                            <option value="small">Large - 13.5" - £15.99</option>
+                                            <option value="small">X-Large - 16" - £19.99</option>
+                                        </select>
+                                    </div>
+                                    <div class="itemQuantity-container">
+                                        <div class="quantityButtons">
+                                            <button class="buttonRoundedAlt" onclick="incrementQuantity('pizza2')">+</button>
+                                            <button class="buttonRoundedAlt" onclick="decrementQuantity('pizza2')">-</button>
+                                        </div>
+                                        <div class="quantityCount-container">
+                                            <p class="quantityCount quantity-pizza2">0</p>
+                                        </div>
+                                    </div>
+                            </div>
+                            </div>
+                            <div class="menuItem">
+                                <img class="itemImage" src="./assets/pizza.png" alt="pizza"></img>
+                                <div class="itemInfo">
+                                    <div class="itemTitle title-pizza3">PlaceholderTitle</div>
+                                    <div class="sizes-container">
+                                        <select name="sizes" id="pizza3-size" class="pizzaSizeOption">
+                                            <option value="small">Small - 9.5" - £9.99</option>
+                                            <option value="small">Medium - 11.5" - £12.99</option>
+                                            <option value="small">Large - 13.5" - £15.99</option>
+                                            <option value="small">X-Large - 16" - £19.99</option>
+                                        </select>
+                                    </div>
+                                    <div class="itemQuantity-container">
+                                        <div class="quantityButtons">
+                                            <button class="buttonRoundedAlt" onclick="incrementQuantity('pizza3')">+</button>
+                                            <button class="buttonRoundedAlt" onclick="decrementQuantity('pizza3')">-</button>
+                                        </div>
+                                        <div class="quantityCount-container">
+                                            <p class="quantityCount quantity-pizza3">0</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menuItem">
+                                <img class="itemImage" src="./assets/pizza.png" alt="pizza"></img>
+                                <div class="itemInfo">
+                                    <div class="itemTitle title-pizza4">PlaceholderTitle</div>
+                                    <div class="sizes-container">
+                                        <select name="sizes" id="pizza4-size" class="pizzaSizeOption">
+                                            <option value="small">Small - 9.5" - £9.99</option>
+                                            <option value="small">Medium - 11.5" - £12.99</option>
+                                            <option value="small">Large - 13.5" - £15.99</option>
+                                            <option value="small">X-Large - 16" - £19.99</option>
+                                        </select>
+                                    </div>
+                                    <div class="itemQuantity-container">
+                                        <div class="quantityButtons">
+                                            <button class="buttonRoundedAlt" onclick="incrementQuantity('pizza4')">+</button>
+                                            <button class="buttonRoundedAlt" onclick="decrementQuantity('pizza4')">-</button>
+                                        </div>
+                                        <div class="quantityCount-container">
+                                            <p class="quantityCount quantity-pizza4">0</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menuItem">
+                                <img class="itemImage" src="./assets/pizza.png" alt="pizza"></img>
+                                <div class="itemInfo">
+                                    <div class="itemTitle title-pizza5">PlaceholderTitle</div>
+                                    <div class="sizes-container">
+                                        <select name="sizes" id="pizza5-size" class="pizzaSizeOption">
+                                            <option value="small">Small - 9.5" - £9.99</option>
+                                            <option value="small">Medium - 11.5" - £12.99</option>
+                                            <option value="small">Large - 13.5" - £15.99</option>
+                                            <option value="small">X-Large - 16" - £19.99</option>
+                                        </select>
+                                    </div>
+                                    <div class="itemQuantity-container">
+                                        <div class="quantityButtons">
+                                            <button class="buttonRoundedAlt" onclick="incrementQuantity('pizza5')">+</button>
+                                            <button class="buttonRoundedAlt" onclick="decrementQuantity('pizza5')">-</button>
+                                        </div>
+                                        <div class="quantityCount-container">
+                                            <p class="quantityCount quantity-pizza5">0</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menuItem">
+                                <img class="itemImage" src="./assets/pizza.png" alt="pizza"></img>
+                                <div class="itemInfo">
+                                    <div class="itemTitle title-pizza6">PlaceholderTitle</div>
+                                    <div class="sizes-container">
+                                        <select name="sizes" id="pizza6-size" class="pizzaSizeOption">
+                                            <option value="small">Small - 9.5" - £9.99</option>
+                                            <option value="small">Medium - 11.5" - £12.99</option>
+                                            <option value="small">Large - 13.5" - £15.99</option>
+                                            <option value="small">X-Large - 16" - £19.99</option>
+                                        </select>
+                                    </div>
+                                    <div class="itemQuantity-container">
+                                        <div class="quantityButtons">
+                                            <button class="buttonRoundedAlt" onclick="incrementQuantity('pizza6')">+</button>
+                                            <button class="buttonRoundedAlt" onclick="decrementQuantity('pizza6')">-</button>
+                                        </div>
+                                        <div class="quantityCount-container">
+                                            <p class="quantityCount quantity-pizza6">0</p>
+                                        </div>
+                                    </div>
+                            </div>
+                            </div>
+                            <div class="menuItem">
+                                <img class="itemImage" src="./assets/pizza.png" alt="pizza"></img>
+                                <div class="itemInfo">
+                                    <div class="itemTitle title-pizza7">PlaceholderTitle</div>
+                                    <div class="sizes-container">
+                                        <select name="sizes" id="pizza7-size" class="pizzaSizeOption">
+                                            <option value="small">Small - 9.5" - £9.99</option>
+                                            <option value="small">Medium - 11.5" - £12.99</option>
+                                            <option value="small">Large - 13.5" - £15.99</option>
+                                            <option value="small">X-Large - 16" - £19.99</option>
+                                        </select>
+                                    </div>
+                                    <div class="itemQuantity-container">
+                                        <div class="quantityButtons">
+                                            <button class="buttonRoundedAlt" onclick="incrementQuantity('pizza7')">+</button>
+                                            <button class="buttonRoundedAlt" onclick="decrementQuantity('pizza7')">-</button>
+                                        </div>
+                                        <div class="quantityCount-container">
+                                            <p class="quantityCount quantity-pizza7">0</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menuItem">
+                                <img class="itemImage" src="./assets/pizza.png" alt="pizza"></img>
+                                <div class="itemInfo">
+                                    <div class="itemTitle title-pizza8">PlaceholderTitle</div>
+                                    <div class="sizes-container">
+                                        <select name="sizes" id="pizza8-size" class="pizzaSizeOption">
+                                            <option value="small">Small - 9.5" - £9.99</option>
+                                            <option value="small">Medium - 11.5" - £12.99</option>
+                                            <option value="small">Large - 13.5" - £15.99</option>
+                                            <option value="small">X-Large - 16" - £19.99</option>
+                                        </select>
+                                    </div>
+                                    <div class="itemQuantity-container">
+                                        <div class="quantityButtons">
+                                            <button class="buttonRoundedAlt" onclick="incrementQuantity('pizza8')">+</button>
+                                            <button class="buttonRoundedAlt" onclick="decrementQuantity('pizza8')">-</button>
+                                        </div>
+                                        <div class="quantityCount-container">
+                                            <p class="quantityCount quantity-pizza8">0</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menuItem">
+                                <img class="itemImage" src="./assets/pizza.png" alt="pizza"></img>
+                                <div class="itemInfo">
+                                    <div class="itemTitle title-pizza9">PlaceholderTitle</div>
+                                    <div class="sizes-container">
+                                        <select name="sizes" id="pizza9-size" class="pizzaSizeOption">
+                                            <option value="small">Small - 9.5" - £9.99</option>
+                                            <option value="small">Medium - 11.5" - £12.99</option>
+                                            <option value="small">Large - 13.5" - £15.99</option>
+                                            <option value="small">X-Large - 16" - £19.99</option>
+                                        </select>
+                                    </div>
+                                    <div class="itemQuantity-container">
+                                        <div class="quantityButtons">
+                                            <button class="buttonRoundedAlt" onclick="incrementQuantity('pizza9')">+</button>
+                                            <button class="buttonRoundedAlt" onclick="decrementQuantity('pizza9')">-</button>
+                                        </div>
+                                        <div class="quantityCount-container">
+                                            <p class="quantityCount quantity-pizza9">0</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menuItem">
+                                <img class="itemImage" src="./assets/pizza.png" alt="pizza"></img>
+                                <div class="itemInfo">
+                                    <div class="itemTitle title-pizza10">PlaceholderTitle</div>
+                                    <div class="sizes-container">
+                                        <select name="sizes" id="pizza10-size" class="pizzaSizeOption">
+                                            <option value="small">Small - 9.5" - £9.99</option>
+                                            <option value="small">Medium - 11.5" - £12.99</option>
+                                            <option value="small">Large - 13.5" - £15.99</option>
+                                            <option value="small">X-Large - 16" - £19.99</option>
+                                        </select>
+                                    </div>
+                                    <div class="itemQuantity-container">
+                                        <div class="quantityButtons">
+                                            <button class="buttonRoundedAlt" onclick="incrementQuantity('pizza10')">+</button>
+                                            <button class="buttonRoundedAlt" onclick="decrementQuantity('pizza10')">-</button>
+                                        </div>
+                                        <div class="quantityCount-container">
+                                            <p class="quantityCount quantity-pizza10">0</p>
+                                        </div>
+                                    </div>
+                            </div>
+                            </div>
+                            <div class="menuItem">
+                                <img class="itemImage" src="./assets/pizza.png" alt="pizza"></img>
+                                <div class="itemInfo">
+                                    <div class="itemTitle title-pizza11">PlaceholderTitle</div>
+                                    <div class="sizes-container">
+                                        <select name="sizes" id="pizza11-size" class="pizzaSizeOption">
+                                            <option value="small">Small - 9.5" - £9.99</option>
+                                            <option value="small">Medium - 11.5" - £12.99</option>
+                                            <option value="small">Large - 13.5" - £15.99</option>
+                                            <option value="small">X-Large - 16" - £19.99</option>
+                                        </select>
+                                    </div>
+                                    <div class="itemQuantity-container">
+                                        <div class="quantityButtons">
+                                            <button class="buttonRoundedAlt" onclick="incrementQuantity('pizza11')">+</button>
+                                            <button class="buttonRoundedAlt" onclick="decrementQuantity('pizza11')">-</button>
+                                        </div>
+                                        <div class="quantityCount-container">
+                                            <p class="quantityCount quantity-pizza11">0</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menuItem">
+                                <img class="itemImage" src="./assets/pizza.png" alt="pizza"></img>
+                                <div class="itemInfo">
+                                    <div class="itemTitle title-pizza12">PlaceholderTitle</div>
+                                    <div class="sizes-container">
+                                        <select name="sizes" id="pizza12-size" class="pizzaSizeOption">
+                                            <option value="small">Small - 9.5" - £9.99</option>
+                                            <option value="small">Medium - 11.5" - £12.99</option>
+                                            <option value="small">Large - 13.5" - £15.99</option>
+                                            <option value="small">X-Large - 16" - £19.99</option>
+                                        </select>
+                                    </div>
+                                    <div class="itemQuantity-container">
+                                        <div class="quantityButtons">
+                                            <button class="buttonRoundedAlt" onclick="incrementQuantity('pizza12')">+</button>
+                                            <button class="buttonRoundedAlt" onclick="decrementQuantity('pizza12')">-</button>
+                                        </div>
+                                        <div class="quantityCount-container">
+                                            <p class="quantityCount quantity-pizza12">0</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menuItem">
+                                <img class="itemImage" src="./assets/pizza.png" alt="pizza"></img>
+                                <div class="itemInfo">
+                                    <div class="itemTitle title-pizza13">PlaceholderTitle</div>
+                                    <div class="sizes-container">
+                                        <select name="sizes" id="pizza13-size" class="pizzaSizeOption">
+                                            <option value="small">Small - 9.5" - £9.99</option>
+                                            <option value="small">Medium - 11.5" - £12.99</option>
+                                            <option value="small">Large - 13.5" - £15.99</option>
+                                            <option value="small">X-Large - 16" - £19.99</option>
+                                        </select>
+                                    </div>
+                                    <div class="itemQuantity-container">
+                                        <div class="quantityButtons">
+                                            <button class="buttonRoundedAlt" onclick="incrementQuantity('pizza13')">+</button>
+                                            <button class="buttonRoundedAlt" onclick="decrementQuantity('pizza13')">-</button>
+                                        </div>
+                                        <div class="quantityCount-container">
+                                            <p class="quantityCount quantity-pizza13">0</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menuItem">
+                                <img class="itemImage" src="./assets/pizza.png" alt="pizza"></img>
+                                <div class="itemInfo">
+                                    <div class="itemTitle title-pizza14">PlaceholderTitle</div>
+                                    <div class="sizes-container">
+                                        <select name="sizes" id="pizza14-size" class="pizzaSizeOption">
+                                            <option value="small">Small - 9.5" - £9.99</option>
+                                            <option value="small">Medium - 11.5" - £12.99</option>
+                                            <option value="small">Large - 13.5" - £15.99</option>
+                                            <option value="small">X-Large - 16" - £19.99</option>
+                                        </select>
+                                    </div>
+                                    <div class="itemQuantity-container">
+                                        <div class="quantityButtons">
+                                            <button class="buttonRoundedAlt" onclick="incrementQuantity('pizza14')">+</button>
+                                            <button class="buttonRoundedAlt" onclick="decrementQuantity('pizza14')">-</button>
+                                        </div>
+                                        <div class="quantityCount-container">
+                                            <p class="quantityCount quantity-pizza14">0</p>
+                                        </div>
+                                    </div>
+                            </div>
+                            </div>
+                            <div class="menuItem">
+                                <img class="itemImage" src="./assets/pizza.png" alt="pizza"></img>
+                                <div class="itemInfo">
+                                    <div class="itemTitle title-pizza15">PlaceholderTitle</div>
+                                    <div class="sizes-container">
+                                        <select name="sizes" id="pizza15-size" class="pizzaSizeOption">
+                                            <option value="small">Small - 9.5" - £9.99</option>
+                                            <option value="small">Medium - 11.5" - £12.99</option>
+                                            <option value="small">Large - 13.5" - £15.99</option>
+                                            <option value="small">X-Large - 16" - £19.99</option>
+                                        </select>
+                                    </div>
+                                    <div class="itemQuantity-container">
+                                        <div class="quantityButtons">
+                                            <button class="buttonRoundedAlt" onclick="incrementQuantity('pizza15')">+</button>
+                                            <button class="buttonRoundedAlt" onclick="decrementQuantity('pizza15')">-</button>
+                                        </div>
+                                        <div class="quantityCount-container">
+                                            <p class="quantityCount quantity-pizza15">0</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="Sides">
+                        <h2 class="menuHeading">Sides</h2>
+                        <div class="item-container">
+                            <div class="menuItem-container">
+                                <div class="menuItem">
+                                    <img class="itemImage" src="./assets/side.png" alt="side"></img>
+                                    <div class="itemInfo">
+                                        <div class="itemTitle title-side1">PlaceholderTitle</div>
+                                    </div>
+                                    <div class="itemQuantity-container">
+                                        <div class="quantityButtons">
+                                            <button class="buttonRoundedAlt" onclick="incrementQuantity('side1')">+</button>
+                                            <button class="buttonRoundedAlt" onclick="decrementQuantity('side1')">-</button>
+                                        </div>
+                                        <div class="quantityCount-container">
+                                            <p class="quantityCount quantity-side1">0</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="menuItem">
+                                    <img class="itemImage" src="./assets/side.png" alt="side"></img>
+                                    <div class="itemInfo">
+                                        <div class="itemTitle title-side2">PlaceholderTitle</div>
+                                    </div>
+                                    <div class="itemQuantity-container">
+                                        <div class="quantityButtons">
+                                            <button class="buttonRoundedAlt" onclick="incrementQuantity('side2')">+</button>
+                                            <button class="buttonRoundedAlt" onclick="decrementQuantity('side2')">-</button>
+                                        </div>
+                                        <div class="quantityCount-container">
+                                            <p class="quantityCount quantity-side2">0</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="menuItem">
+                                    <img class="itemImage" src="./assets/side.png" alt="side"></img>
+                                    <div class="itemInfo">
+                                        <div class="itemTitle title-side3">PlaceholderTitle</div>
+                                    </div>
+                                    <div class="itemQuantity-container">
+                                        <div class="quantityButtons">
+                                            <button class="buttonRoundedAlt" onclick="incrementQuantity('side3')">+</button>
+                                            <button class="buttonRoundedAlt" onclick="decrementQuantity('side3')">-</button>
+                                        </div>
+                                        <div class="quantityCount-container">
+                                            <p class="quantityCount quantity-side3">0</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="menuItem">
+                                    <img class="itemImage" src="./assets/side.png" alt="side"></img>
+                                    <div class="itemInfo">
+                                        <div class="itemTitle title-side4">PlaceholderTitle</div>
+                                    </div>
+                                    <div class="itemQuantity-container">
+                                        <div class="quantityButtons">
+                                            <button class="buttonRoundedAlt" onclick="incrementQuantity('side4')">+</button>
+                                            <button class="buttonRoundedAlt" onclick="decrementQuantity('side4')">-</button>
+                                        </div>
+                                        <div class="quantityCount-container">
+                                            <p class="quantityCount quantity-side4">0</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="Drinks">
+                        <h2 class="menuHeading">Drinks</h2>
+                        <div class="menuItem-container">
+                            <div class="menuItem">
+                                <img class="itemImage" src="./assets/drink.png" alt="drink"></img>
+                                <div class="itemInfo">
+                                    <p class="itemTitle title-drink1">PlaceholderTitle</p>
+                                </div>
+                                <div class="itemQuantity-container">
+                                    <div class="quantityButtons">
+                                        <button class="buttonRoundedAlt" onclick="incrementQuantity('drink1')">+</button>
+                                        <button class="buttonRoundedAlt" onclick="decrementQuantity('drink1')">-</button>
+                                    </div>
+                                    <div class="quantityCount-container">
+                                        <p class="quantityCount quantity-drink1">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menuItem">
+                                <img class="itemImage" src="./assets/drink.png" alt="drink"></img>
+                                <div class="itemInfo">
+                                    <p class="itemTitle title-drink2">PlaceholderTitle</p>
+                                </div>
+                                <div class="itemQuantity-container">
+                                    <div class="quantityButtons">
+                                        <button class="buttonRoundedAlt" onclick="incrementQuantity('drink2')">+</button>
+                                        <button class="buttonRoundedAlt" onclick="decrementQuantity('drink2')">-</button>
+                                    </div>
+                                    <div class="quantityCount-container">
+                                        <p class="quantityCount quantity-drink2">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menuItem">
+                                <img class="itemImage" src="./assets/drink.png" alt="drink"></img>
+                                <div class="itemInfo">
+                                    <p class="itemTitle title-drink3">PlaceholderTitle</p>
+                                </div>
+                                <div class="itemQuantity-container">
+                                    <div class="quantityButtons">
+                                        <button class="buttonRoundedAlt" onclick="incrementQuantity('drink3')">+</button>
+                                        <button class="buttonRoundedAlt" onclick="decrementQuantity('drink3')">-</button>
+                                    </div>
+                                    <div class="quantityCount-container">
+                                        <p class="quantityCount quantity-drink3">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menuItem">
+                                <img class="itemImage" src="./assets/drink.png" alt="drink"></img>
+                                <div class="itemInfo">
+                                    <p class="itemTitle title-drink4">PlaceholderTitle</p>
+                                </div>
+                                <div class="itemQuantity-container">
+                                    <div class="quantityButtons">
+                                        <button class="buttonRoundedAlt" onclick="incrementQuantity('drink4')">+</button>
+                                        <button class="buttonRoundedAlt" onclick="decrementQuantity('drink4')">-</button>
+                                    </div>
+                                    <div class="quantityCount-container">
+                                        <p class="quantityCount quantity-drink4">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="Desserts">
+                        <h2 class="menuHeading">Desserts</h2>
+                        <div class="menuItem-container">
+                            <div class="menuItem">
+                                <img class="itemImage" src="./assets/dessert.png" alt="dessert"></img>
+                                <div class="itemInfo">
+                                    <div class="itemTitle title-dessert1">PlaceholderTitle</div>
+                                </div>
+                                <div class="itemQuantity-container">
+                                    <div class="quantityButtons">
+                                        <button class="buttonRoundedAlt" onclick="incrementQuantity('dessert1')">+</button>
+                                        <button class="buttonRoundedAlt" onclick="decrementQuantity('dessert1')">-</button>
+                                    </div>
+                                    <div class="quantityCount-container">
+                                        <p class="quantityCount quantity-dessert1">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menuItem">
+                                <img class="itemImage" src="./assets/dessert.png" alt="dessert"></img>
+                                <div class="itemInfo">
+                                    <div class="itemTitle title-dessert2">PlaceholderTitle</div>
+                                </div>
+                                <div class="itemQuantity-container">
+                                    <div class="quantityButtons">
+                                        <button class="buttonRoundedAlt" onclick="incrementQuantity('dessert2')">+</button>
+                                        <button class="buttonRoundedAlt" onclick="decrementQuantity('dessert2')">-</button>
+                                    </div>
+                                    <div class="quantityCount-container">
+                                        <p class="quantityCount quantity-dessert2">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menuItem">
+                                <img class="itemImage" src="./assets/dessert.png" alt="dessert"></img>
+                                <div class="itemInfo">
+                                    <div class="itemTitle title-dessert3">PlaceholderTitle</div>
+                                </div>
+                                <div class="itemQuantity-container">
+                                    <div class="quantityButtons">
+                                        <button class="buttonRoundedAlt" onclick="incrementQuantity('dessert3')">+</button>
+                                        <button class="buttonRoundedAlt" onclick="decrementQuantity('dessert3')">-</button>
+                                    </div>
+                                    <div class="quantityCount-container">
+                                        <p class="quantityCount quantity-dessert3">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="menuItem">
+                                <img class="itemImage" src="./assets/dessert.png" alt="dessert"></img>
+                                <div class="itemInfo">
+                                    <div class="itemTitle title-dessert4">PlaceholderTitle</div>
+                                </div>
+                                <div class="itemQuantity-container">
+                                    <div class="quantityButtons">
+                                        <button class="buttonRoundedAlt" onclick="incrementQuantity('dessert4')">+</button>
+                                        <button class="buttonRoundedAlt" onclick="decrementQuantity('dessert4')">-</button>
+                                    </div>
+                                    <div class="quantityCount-container">
+                                        <p class="quantityCount quantity-dessert4">0</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+            <section id="Basket">
+                <div class="basket-container">
+                    <h2>Basket</h2>
+                </div>
+            </section>
+        </section>
     </main>
+    <footer>
+        <section id="Footer">
+            <p class="copyright">© 2023 Pete's Pizza UK Limited</p>
+        </section>
+    </footer>
 </body>
 </html>
