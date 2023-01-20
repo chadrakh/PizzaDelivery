@@ -1,7 +1,9 @@
 const pizzaTitles = ['50/50 Special', 'Top Gun', 'Hasta La Vista', 'Home Alone', 'Jurassic Park', 'A New Hope', 'Breakfast Club', 'Temple of Doom', 'The Mask', 'The Ghostbuster', 'Neverland Special', 'The Patriot', 'Saucy With A Chance of Meatballs', 'The MacGuyver', 'Trading Places'];
-const sideTitles = ['Wedges', 'Garlic Bread', 'Chips', 'Dough Balls'];
-const drinkTitles = ['Coca Cola', 'Fanta', 'Sprite', 'Mirinda'];
-const dessertTitles = ['Apple Pie', 'Brownies', 'Chocolate Cake', 'Cookie Dough'];
+const sideTitles = ['Wedges - £2.99', 'Garlic Bread - £1.99', 'Chips - £1.99', 'Dough Balls - £2.50'];
+const drinkTitles = ['Coca Cola - £1.99', 'Fanta - £1.99', 'Sprite - £1.99', 'Mirinda - £1.99'];
+const dessertTitles = ['Apple Pie - £0.99', 'Brownies - £1.50', 'Chocolate Cake - £1.99', 'Cookie Dough - £3.50'];
+
+const itemArray = ["Wedges", "Garlic Bread", "Chips", "Dough Balls", "Coca Cola", "Fanta", "Sprite", "Mirinda", "Apple Pie", "Brownies", "Chocolate Cake", "Cookie Dough"]
     
 let basketItems = [];
 let basketTotal = 0;
@@ -66,7 +68,6 @@ const updateBasketTally = (updateType) => {
         basketTally += parseInt(itemList[index].innerText);
     }
 
-    //console.log(basketTally);
     document.querySelector(".basketTally").innerText = basketTally;
     updateBasketItems(updateType);
 }
@@ -100,16 +101,17 @@ const getPrice = (size) => {
 const incrementQuantity = (itemReference, isHalfAndHalf) => {
     let quantityCounter = document.querySelector(`.quantity-${itemReference}`).innerText;
     let quantityCounterParsed = parseInt(quantityCounter);
-    let addedItem = [];
 
     // Checking if details have been chosen before allowing increment
-    let size;
-    let half1;
-    let half2;
+    
     let item = document.querySelector(`.title-${itemReference}`).innerText;
     let price;
 
     if (itemReference.includes("pizza")) {
+        let size;
+        let half1;
+        let half2;
+
         size = document.getElementById(`size-${itemReference}`).value;
         half1 = document.getElementById("topping1").value;
         half2 = document.getElementById("topping2").value;
@@ -123,7 +125,7 @@ const incrementQuantity = (itemReference, isHalfAndHalf) => {
                 document.querySelector(`.quantity-${itemReference}`).innerText = quantityCounterParsed;
 
                 price = getPrice(size);
-                addedItem.push([item, size, price, half1, half2]);
+                basketItems.push([item, size, price, half1, half2]);
 
                 // Basket tally is updated for every successful call of the update function
                 updateBasketTally("increment");
@@ -137,16 +139,21 @@ const incrementQuantity = (itemReference, isHalfAndHalf) => {
                 document.querySelector(`.quantity-${itemReference}`).innerText = quantityCounterParsed;
 
                 price = getPrice(size);
-                addedItem.push([item, size, price]);
+                basketItems.push([item, size, price]);
 
                 // Basket tally is updated for every successful call of the update function
                 updateBasketTally("increment");
             }
         }
 
-        if (addedItem.length > 0) {
-            basketItems.push(addedItem);
-        }
+    } else if (itemArray.some(x => item.includes(x))) {
+        quantityCounterParsed += 1;
+        document.querySelector(`.quantity-${itemReference}`).innerText = quantityCounterParsed;
+        let indexOf = item.indexOf("£");
+        let itemPrice = parseFloat(item.substring(indexOf + 1));
+        
+        basketTotal += itemPrice;
+        updateBasketTotal(basketTotal);
     }
 }
 
@@ -155,73 +162,101 @@ const decrementQuantity = (itemReference, isHalfAndHalf) => {
     let quantityCounterParsed = parseInt(quantityCounter);
 
     // Checking if details have been chosen before allowing increment
-    let size;
-    let half1;
-    let half2;
+    
     let item = document.querySelector(`.title-${itemReference}`).innerText;
+    let price;
 
     if (itemReference.includes("pizza")) {
+        let size;
+        let half1;
+        let half2;
+        let removeItem;
+        let removeSize;
+        let removePrice;
+
         size = document.getElementById(`size-${itemReference}`).value;
         half1 = document.getElementById("topping1").value;
         half2 = document.getElementById("topping2").value;
 
-        if (itemReference === "pizza1") {
+        if (quantityCounterParsed == 0) {
+            alert("Minimum value (0) reached.")
+        } else {
             if (isHalfAndHalf) {
-                
                 // If a detail of the 50/50 pizza hasn't been chosen, alert the user to select all choices
                 if(half1 === "default" || half2 === "default" || size === "default") {
-                    alert("Please select the size and toppings of the pizza you wish to remove.");
-                } else {
-                    if (quantityCounterParsed == 0) {
-                        alert("Minimum quantity reached.");
-                    } else {
-                        quantityCounterParsed -= 1;
-                        document.querySelector(`.quantity-${itemReference}`).innerText = quantityCounterParsed;
-                        // Basket tally is updated for every successful call of the update function
-                        updateBasketTally("decrement");
-                    }
-                }   
-            }
-
-        } else {
-            if (size === "default") {
-                alert("Please select the size of the pizza you wish to remove.");
-            } else {
-                if (quantityCounterParsed == 0) {
-                    alert("Minimum quantity reached.");
+                    alert("Please select the size and toppings.");
                 } else {
                     quantityCounterParsed -= 1;
                     document.querySelector(`.quantity-${itemReference}`).innerText = quantityCounterParsed;
+    
+                    price = getPrice(size);
+                    //console.log([item, size, price, half1, half2]);
+    
+                    removeItem = item;
+                    removeSize = size;
+                    removePrice = price;
+                    let removeHalf1 = half1;
+                    let removeHalf2 = half2;
+    
+                    // Basket tally is updated for every successful call of the update function
+                    updateBasketTally("decrement");
+                }   
+    
+            } else {
+                if (size === "default") {
+                    alert("Please select the size.");
+                } else {
+                    quantityCounterParsed -= 1;
+                    document.querySelector(`.quantity-${itemReference}`).innerText = quantityCounterParsed;
+    
+                    price = getPrice(size);
+                    //console.log([item, size, price]);
+    
+                    removeItem = item;
+                    removeSize = size;
+                    removePrice = price;
+    
                     // Basket tally is updated for every successful call of the update function
                     updateBasketTally("decrement");
                 }
-            }  
+            }
         }
 
+    } else if (itemArray.some(x => item.includes(x))) {
+        quantityCounterParsed -= 1;
+        document.querySelector(`.quantity-${itemReference}`).innerText = quantityCounterParsed;
+        let indexOf = item.indexOf("£");
+        let itemPrice = parseFloat(item.substring(indexOf + 1));
         
+        basketTotal -= itemPrice;
+        updateBasketTotal(basketTotal);
     }
-
-    
 }
 
+const updateBasketTotal = (basketTotal) => {
+    document.querySelector(".basketTotal").innerText = `£${parseFloat(basketTotal).toFixed(2)}`;
+}
 
 const updateBasketItems = (updateType) => {
-    console.log("basketItems 2D Array", basketItems);
     
     if (updateType == "increment") {
         // Calculating sum using basketItems array
-        for (let index = 0; index < basketItems.length; index++) {
-            basketTotal += basketItems[index][index][2];
+        for (let i = 0; i < basketItems.length; i++) {
+                let currentItem = basketItems[i];
+                let currentPrice = currentItem[2];
+                console.log(currentItem);
+                console.log(currentPrice);
+                console.log(basketTotal);
+                basketTotal += currentPrice;
         }
 
-        //console.log(document.querySelector(".basketTotal").innerText)
     } else if (updateType = "decrement") {
-        // write code to remove item from basket
-
-    } else {
-        console.error("Invalid update type passed into updateBasketItems method.");
+        // Removing items from the basket array
+        // for (let i = 0; i < basketItems.length; i++) {
+            // let itemToRemove = basketItems[i];
+            // console.log(basketItems.indexOf(itemToRemove));
+        // }
     }
 
-    console.log("basketTotal", basketTotal);
-    document.querySelector(".basketTotal").innerText = `£${basketTotal.toFixed(2)}`;
+    updateBasketTotal(basketTotal);
 }
