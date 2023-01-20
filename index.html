@@ -17,20 +17,13 @@
 <body>
     <header>
         <nav id="NavBar">
-            <a href="index.html" class="logo"><img src="assets/PPLogo-PrimaryWhite.png" width="150" height="auto"></a>
-            <!-- CTA Links -->
-            <!-- <ul class="navLink-container">
-                <li class="navLink"><a href="index.html">Home</a></li>
-                <li class="navLink"><a href="#">Menu</a></li>
-                <li class="navLink"><a href="#">Basket</a></li>
-            </ul> -->
-            <!-- User Section -->
+            <a href="index.html" class="logo"><img src="assets/PPLogo-PrimaryWhite.png" width="110" height="auto"></a>
             <ul class="navIcon-container">
                 <li class="navIcon">
-                    <a href="checkout.html">
+                    <div class="navIcon-content">
                         <span class="material-symbols-outlined">shopping_basket</span>
-                        <span class="basketText">0</span>
-                    </a>
+                        <span class="basketTally">0</span>
+                    </div>
                 </li>
             </ul>
         </nav>
@@ -67,17 +60,34 @@
                                 <div class="itemInfo">
                                     <div class="itemTitle title-pizza1">PlaceholderTitle</div>
                                     <div class="sizes-container">
-                                        <select name="sizes" id="pizza1-size" class="pizzaSizeOption">
+                                        <select name="sizes" id="size-pizza1" class="pizzaSizeOption">
+                                            <option value="default">Select a size</option>
                                             <option value="small">Small - 9.5" - £9.99</option>
-                                            <option value="small">Medium - 11.5" - £12.99</option>
-                                            <option value="small">Large - 13.5" - £15.99</option>
-                                            <option value="small">X-Large - 16" - £19.99</option>
+                                            <option value="medium">Medium - 11.5" - £12.99</option>
+                                            <option value="large">Large - 13.5" - £15.99</option>
+                                            <option value="x-large">X-Large - 16" - £19.99</option>
+                                        </select>
+                                    </div>
+                                    <div class="toppings-container">
+                                        <select name="toppings" id="topping1" class="toppingOption">
+                                            <option value="default">Choose</option>
+                                            <option value="margherita">Half Margherita</option>
+                                            <option value="pepperoni">Half Pepperoni</option>
+                                            <option value="hawaiian">Half Hawaiian</option>
+                                            <option value="vegetarian">Half Vegeterain</option>
+                                        </select>
+                                        <select name="toppings" id="topping2" class="toppingOption">
+                                            <option value="default">Choose</option>
+                                            <<option value="margherita">Half Margherita</option>
+                                            <option value="pepperoni">Half Pepperoni</option>
+                                            <option value="hawaiian">Half Hawaiian</option>
+                                            <option value="vegetarian">Half Vegeterain</option>
                                         </select>
                                     </div>
                                     <div class="itemQuantity-container">
                                         <div class="quantityButtons">
-                                            <button class="buttonRoundedAlt" onclick="incrementQuantity('pizza1')">+</button>
-                                            <button class="buttonRoundedAlt" onclick="decrementQuantity('pizza1')">-</button>
+                                            <button class="buttonRoundedAlt" onclick="incrementQuantity('pizza1', true)">+</button>
+                                            <button class="buttonRoundedAlt" onclick="decrementQuantity('pizza1', true)">-</button>
                                         </div>
                                         <div class="quantityCount-container">
                                             <p class="quantityCount quantity-pizza1">0</p>
@@ -90,11 +100,12 @@
                                 <div class="itemInfo">
                                     <div class="itemTitle title-pizza2">PlaceholderTitle</div>
                                     <div class="sizes-container">
-                                        <select name="sizes" id="pizza2-size" class="pizzaSizeOption">
+                                        <select name="sizes" id="size-pizza2" class="pizzaSizeOption">
+                                            <option value="default">Select a size</option>
                                             <option value="small">Small - 9.5" - £9.99</option>
-                                            <option value="small">Medium - 11.5" - £12.99</option>
-                                            <option value="small">Large - 13.5" - £15.99</option>
-                                            <option value="small">X-Large - 16" - £19.99</option>
+                                            <option value="medium">Medium - 11.5" - £12.99</option>
+                                            <option value="large">Large - 13.5" - £15.99</option>
+                                            <option value="x-large">X-Large - 16" - £19.99</option>
                                         </select>
                                     </div>
                                     <div class="itemQuantity-container">
@@ -113,11 +124,12 @@
                                 <div class="itemInfo">
                                     <div class="itemTitle title-pizza3">PlaceholderTitle</div>
                                     <div class="sizes-container">
-                                        <select name="sizes" id="pizza3-size" class="pizzaSizeOption">
+                                        <select name="sizes" id="size-pizza3" class="pizzaSizeOption">
+                                            <option value="default">Select a size</option>
                                             <option value="small">Small - 9.5" - £9.99</option>
-                                            <option value="small">Medium - 11.5" - £12.99</option>
-                                            <option value="small">Large - 13.5" - £15.99</option>
-                                            <option value="small">X-Large - 16" - £19.99</option>
+                                            <option value="medium">Medium - 11.5" - £12.99</option>
+                                            <option value="large">Large - 13.5" - £15.99</option>
+                                            <option value="x-large">X-Large - 16" - £19.99</option>
                                         </select>
                                     </div>
                                     <div class="itemQuantity-container">
@@ -136,11 +148,12 @@
                                 <div class="itemInfo">
                                     <div class="itemTitle title-pizza4">PlaceholderTitle</div>
                                     <div class="sizes-container">
-                                        <select name="sizes" id="pizza4-size" class="pizzaSizeOption">
+                                        <select name="sizes" id="size-pizza4" class="pizzaSizeOption">
+                                            <option value="default">Select a size</option>
                                             <option value="small">Small - 9.5" - £9.99</option>
-                                            <option value="small">Medium - 11.5" - £12.99</option>
-                                            <option value="small">Large - 13.5" - £15.99</option>
-                                            <option value="small">X-Large - 16" - £19.99</option>
+                                            <option value="medium">Medium - 11.5" - £12.99</option>
+                                            <option value="large">Large - 13.5" - £15.99</option>
+                                            <option value="x-large">X-Large - 16" - £19.99</option>
                                         </select>
                                     </div>
                                     <div class="itemQuantity-container">
@@ -159,11 +172,12 @@
                                 <div class="itemInfo">
                                     <div class="itemTitle title-pizza5">PlaceholderTitle</div>
                                     <div class="sizes-container">
-                                        <select name="sizes" id="pizza5-size" class="pizzaSizeOption">
+                                        <select name="sizes" id="size-pizza5" class="pizzaSizeOption">
+                                            <option value="default">Select a size</option>
                                             <option value="small">Small - 9.5" - £9.99</option>
-                                            <option value="small">Medium - 11.5" - £12.99</option>
-                                            <option value="small">Large - 13.5" - £15.99</option>
-                                            <option value="small">X-Large - 16" - £19.99</option>
+                                            <option value="medium">Medium - 11.5" - £12.99</option>
+                                            <option value="large">Large - 13.5" - £15.99</option>
+                                            <option value="x-large">X-Large - 16" - £19.99</option>
                                         </select>
                                     </div>
                                     <div class="itemQuantity-container">
@@ -182,11 +196,12 @@
                                 <div class="itemInfo">
                                     <div class="itemTitle title-pizza6">PlaceholderTitle</div>
                                     <div class="sizes-container">
-                                        <select name="sizes" id="pizza6-size" class="pizzaSizeOption">
+                                        <select name="sizes" id="size-pizza6" class="pizzaSizeOption">
+                                            <option value="default">Select a size</option>
                                             <option value="small">Small - 9.5" - £9.99</option>
-                                            <option value="small">Medium - 11.5" - £12.99</option>
-                                            <option value="small">Large - 13.5" - £15.99</option>
-                                            <option value="small">X-Large - 16" - £19.99</option>
+                                            <option value="medium">Medium - 11.5" - £12.99</option>
+                                            <option value="large">Large - 13.5" - £15.99</option>
+                                            <option value="x-large">X-Large - 16" - £19.99</option>
                                         </select>
                                     </div>
                                     <div class="itemQuantity-container">
@@ -205,11 +220,12 @@
                                 <div class="itemInfo">
                                     <div class="itemTitle title-pizza7">PlaceholderTitle</div>
                                     <div class="sizes-container">
-                                        <select name="sizes" id="pizza7-size" class="pizzaSizeOption">
+                                        <select name="sizes" id="size-pizza7" class="pizzaSizeOption">
+                                            <option value="default">Select a size</option>
                                             <option value="small">Small - 9.5" - £9.99</option>
-                                            <option value="small">Medium - 11.5" - £12.99</option>
-                                            <option value="small">Large - 13.5" - £15.99</option>
-                                            <option value="small">X-Large - 16" - £19.99</option>
+                                            <option value="medium">Medium - 11.5" - £12.99</option>
+                                            <option value="large">Large - 13.5" - £15.99</option>
+                                            <option value="x-large">X-Large - 16" - £19.99</option>
                                         </select>
                                     </div>
                                     <div class="itemQuantity-container">
@@ -228,11 +244,12 @@
                                 <div class="itemInfo">
                                     <div class="itemTitle title-pizza8">PlaceholderTitle</div>
                                     <div class="sizes-container">
-                                        <select name="sizes" id="pizza8-size" class="pizzaSizeOption">
+                                        <select name="sizes" id="size-pizza8" class="pizzaSizeOption">
+                                            <option value="default">Select a size</option>
                                             <option value="small">Small - 9.5" - £9.99</option>
-                                            <option value="small">Medium - 11.5" - £12.99</option>
-                                            <option value="small">Large - 13.5" - £15.99</option>
-                                            <option value="small">X-Large - 16" - £19.99</option>
+                                            <option value="medium">Medium - 11.5" - £12.99</option>
+                                            <option value="large">Large - 13.5" - £15.99</option>
+                                            <option value="x-large">X-Large - 16" - £19.99</option>
                                         </select>
                                     </div>
                                     <div class="itemQuantity-container">
@@ -251,11 +268,12 @@
                                 <div class="itemInfo">
                                     <div class="itemTitle title-pizza9">PlaceholderTitle</div>
                                     <div class="sizes-container">
-                                        <select name="sizes" id="pizza9-size" class="pizzaSizeOption">
+                                        <select name="sizes" id="size-pizza9" class="pizzaSizeOption">
+                                            <option value="default">Select a size</option>
                                             <option value="small">Small - 9.5" - £9.99</option>
-                                            <option value="small">Medium - 11.5" - £12.99</option>
-                                            <option value="small">Large - 13.5" - £15.99</option>
-                                            <option value="small">X-Large - 16" - £19.99</option>
+                                            <option value="medium">Medium - 11.5" - £12.99</option>
+                                            <option value="large">Large - 13.5" - £15.99</option>
+                                            <option value="x-large">X-Large - 16" - £19.99</option>
                                         </select>
                                     </div>
                                     <div class="itemQuantity-container">
@@ -274,11 +292,12 @@
                                 <div class="itemInfo">
                                     <div class="itemTitle title-pizza10">PlaceholderTitle</div>
                                     <div class="sizes-container">
-                                        <select name="sizes" id="pizza10-size" class="pizzaSizeOption">
+                                        <select name="sizes" id="size-pizza10" class="pizzaSizeOption">
+                                            <option value="default">Select a size</option>
                                             <option value="small">Small - 9.5" - £9.99</option>
-                                            <option value="small">Medium - 11.5" - £12.99</option>
-                                            <option value="small">Large - 13.5" - £15.99</option>
-                                            <option value="small">X-Large - 16" - £19.99</option>
+                                            <option value="medium">Medium - 11.5" - £12.99</option>
+                                            <option value="large">Large - 13.5" - £15.99</option>
+                                            <option value="x-large">X-Large - 16" - £19.99</option>
                                         </select>
                                     </div>
                                     <div class="itemQuantity-container">
@@ -297,11 +316,12 @@
                                 <div class="itemInfo">
                                     <div class="itemTitle title-pizza11">PlaceholderTitle</div>
                                     <div class="sizes-container">
-                                        <select name="sizes" id="pizza11-size" class="pizzaSizeOption">
+                                        <select name="sizes" id="size-pizza11" class="pizzaSizeOption">
+                                            <option value="default">Select a size</option>
                                             <option value="small">Small - 9.5" - £9.99</option>
-                                            <option value="small">Medium - 11.5" - £12.99</option>
-                                            <option value="small">Large - 13.5" - £15.99</option>
-                                            <option value="small">X-Large - 16" - £19.99</option>
+                                            <option value="medium">Medium - 11.5" - £12.99</option>
+                                            <option value="large">Large - 13.5" - £15.99</option>
+                                            <option value="x-large">X-Large - 16" - £19.99</option>
                                         </select>
                                     </div>
                                     <div class="itemQuantity-container">
@@ -320,11 +340,12 @@
                                 <div class="itemInfo">
                                     <div class="itemTitle title-pizza12">PlaceholderTitle</div>
                                     <div class="sizes-container">
-                                        <select name="sizes" id="pizza12-size" class="pizzaSizeOption">
+                                        <select name="sizes" id="size-pizza12" class="pizzaSizeOption">
+                                            <option value="default">Select a size</option>
                                             <option value="small">Small - 9.5" - £9.99</option>
-                                            <option value="small">Medium - 11.5" - £12.99</option>
-                                            <option value="small">Large - 13.5" - £15.99</option>
-                                            <option value="small">X-Large - 16" - £19.99</option>
+                                            <option value="medium">Medium - 11.5" - £12.99</option>
+                                            <option value="large">Large - 13.5" - £15.99</option>
+                                            <option value="x-large">X-Large - 16" - £19.99</option>
                                         </select>
                                     </div>
                                     <div class="itemQuantity-container">
@@ -343,11 +364,12 @@
                                 <div class="itemInfo">
                                     <div class="itemTitle title-pizza13">PlaceholderTitle</div>
                                     <div class="sizes-container">
-                                        <select name="sizes" id="pizza13-size" class="pizzaSizeOption">
+                                        <select name="sizes" id="size-pizza13" class="pizzaSizeOption">
+                                            <option value="default">Select a size</option>
                                             <option value="small">Small - 9.5" - £9.99</option>
-                                            <option value="small">Medium - 11.5" - £12.99</option>
-                                            <option value="small">Large - 13.5" - £15.99</option>
-                                            <option value="small">X-Large - 16" - £19.99</option>
+                                            <option value="medium">Medium - 11.5" - £12.99</option>
+                                            <option value="large">Large - 13.5" - £15.99</option>
+                                            <option value="x-large">X-Large - 16" - £19.99</option>
                                         </select>
                                     </div>
                                     <div class="itemQuantity-container">
@@ -366,11 +388,12 @@
                                 <div class="itemInfo">
                                     <div class="itemTitle title-pizza14">PlaceholderTitle</div>
                                     <div class="sizes-container">
-                                        <select name="sizes" id="pizza14-size" class="pizzaSizeOption">
+                                        <select name="sizes" id="size-pizza14" class="pizzaSizeOption">
+                                            <option value="default">Select a size</option>
                                             <option value="small">Small - 9.5" - £9.99</option>
-                                            <option value="small">Medium - 11.5" - £12.99</option>
-                                            <option value="small">Large - 13.5" - £15.99</option>
-                                            <option value="small">X-Large - 16" - £19.99</option>
+                                            <option value="medium">Medium - 11.5" - £12.99</option>
+                                            <option value="large">Large - 13.5" - £15.99</option>
+                                            <option value="x-large">X-Large - 16" - £19.99</option>
                                         </select>
                                     </div>
                                     <div class="itemQuantity-container">
@@ -389,11 +412,12 @@
                                 <div class="itemInfo">
                                     <div class="itemTitle title-pizza15">PlaceholderTitle</div>
                                     <div class="sizes-container">
-                                        <select name="sizes" id="pizza15-size" class="pizzaSizeOption">
+                                        <select name="sizes" id="size-pizza15" class="pizzaSizeOption">
+                                            <option value="default">Select a size</option>
                                             <option value="small">Small - 9.5" - £9.99</option>
-                                            <option value="small">Medium - 11.5" - £12.99</option>
-                                            <option value="small">Large - 13.5" - £15.99</option>
-                                            <option value="small">X-Large - 16" - £19.99</option>
+                                            <option value="medium">Medium - 11.5" - £12.99</option>
+                                            <option value="large">Large - 13.5" - £15.99</option>
+                                            <option value="x-large">X-Large - 16" - £19.99</option>
                                         </select>
                                     </div>
                                     <div class="itemQuantity-container">
@@ -610,7 +634,20 @@
             </section>
             <section id="Basket">
                 <div class="basket-container">
-                    <h2>Basket</h2>
+                    <h2 class="basketHeading">Basket</h2>
+                    <h3 class="basketSubheading">Delivery address: </h3>
+                    <div class="basketList-container">
+                        <ul class="basketList">
+                            <li class="basketItem-container">
+                                <p class="title-basketItem">Title</p>
+                                <p class="description-BasketItem">Text</p>
+                                <p>Quantity: <span class="quantity-BasketItem">0</span></p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="basketTotal-container">
+                        <p class="basketTotal">£0.00</p>
+                    </div>
                 </div>
             </section>
         </section>

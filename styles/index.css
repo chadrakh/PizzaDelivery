@@ -69,12 +69,14 @@ header * {
     color: var(--header-text);
 }
 
-nav {
+nav {        
     width: 100%;
     padding: 15px 20px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--colour-alternate);
+    opacity: 80%;
 }
 
 .show {
@@ -124,16 +126,17 @@ nav {
     scale: 1;
 }
 
-.navIcon-container {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-}
-
 .navIcon {
     padding: 0.5rem 1rem;
     border-radius: 1rem;
     border: 1px solid var(--colour-secondary)
+}
+
+.navIcon-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
 }
 
 .navIcon:hover {
@@ -147,23 +150,18 @@ nav {
     transition: var(--transition-default);
 }
 
-.navIcon a {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.basketText, .accountText {
+.basketTally {
     font-weight: bold;
 }
 
 
 /* Landing Section */
 #Landing {
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 90vh;
 }
 
 .landingVideo-container {
@@ -210,7 +208,7 @@ nav {
 
 .postcode {
     background-color: #ffffff;
-    width: 50vw;
+    width: 30vw;
     padding: 1rem 0.5rem;
     border-radius: 0.3rem;
     border: 0.1rem solid var(--colour-alternate);
@@ -267,11 +265,8 @@ nav {
     transition: var(--transition-default);
 }
 
-.itemQuantity-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.2rem;
+main {
+    margin-top: 6rem;
 }
 
 #Order {
@@ -280,27 +275,64 @@ nav {
     background-color: #ffffff;
 }
 
-#Menu, #Basket {
-    width: 100%;
+#Menu {
+    width: 60%;
     display: flex;
     justify-content: center;
     padding-block: 2rem;
 }
 
-#Pizzas, #Sides, #Drinks, #Desserts {
-    width: 100%;
-    margin-bottom: 10rem;
+.menuHeading {
+    margin-bottom: 1rem;
 }
 
 .menuItem-container {
     display: grid;
-    grid-template-columns: repeat(3, 10rem);
+    grid-template-columns: repeat(4, 10rem);
     column-gap: 2rem;
+    row-gap: 10rem;
 }
 
 .menuItem {
-    margin-block: 1rem 3rem;
-    width: 8rem;
+    width: 10rem;
+    height: 10rem;
+}
+
+.pizzaSizeOption {
+    margin-block: 0.3rem;
+    width: 100%;
+}
+
+#Basket {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    padding-block: 2rem;
+}
+
+.basketHeading {
+    font-size: var(--subHeading-size);
+    margin-bottom: 1rem;
+}
+
+.basketSubheading {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.basketList li {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.basketTotal {
+    font-size: var(--subHeading-size);
+}
+
+#Pizzas, #Sides, #Drinks, #Desserts {
+    width: 100%;
+    margin-bottom: 15rem;
 }
 
 .itemImage {
@@ -317,9 +349,27 @@ nav {
     font-weight: bold;
 }
 
+.itemQuantity-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
 .pizzaSizeOption {
     margin-block: 0.3rem;
     width: 100%;
+}
+
+.toppings-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.3rem;
+}
+
+.toppingOption {
+    margin-block: 0.3rem;
+    width: 50%;
 }
 
 #Footer {
@@ -328,67 +378,4 @@ nav {
     padding-block: 2rem;
     color: var(--colour-secondary);
     background-color: var(--colour-primary);
-}
-
-@media only screen and (min-width: 800px) {
-    .logo img {
-        width: 100px;
-    }
-
-    nav {
-        flex-direction: row;
-        justify-content: space-between;
-        background-color: var(--colour-alternate);
-        opacity: 80%;
-    }
-
-    .navLink-container {
-        flex-direction: row;
-        justify-content: left;
-        gap: 2rem;
-    }
-
-    main {
-        margin-top: 6rem;
-    }
-
-    #Landing {
-        margin: 0;
-        height: 90vh;
-    }
-
-    .landingAnimation {
-        display: flex;
-        justify-content: center
-    }
-
-    .postcode {
-        width: 30vw;
-    }
-
-    #Pizzas, #Sides, #Drinks, #Desserts {
-        width: 100%;
-        margin-bottom: 5rem;
-    }
-
-    .menuHeading {
-        margin-bottom: 1rem;
-    }
-
-    .menuItem-container {
-    display: grid;
-    grid-template-columns: repeat(4, 10rem);
-    column-gap: 2rem;
-    }
-
-    .menuItem {
-        margin-block: 1rem 8rem;
-        width: 10rem;
-        height: 10rem;
-    }
-
-    .pizzaSizeOption {
-        margin-block: 0.3rem;
-        width: 100%;
-    }
 }
